@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main_content %}
+    {% for obj in object_list %}
+        <a href='{{ obj.get_absolute_url }}' ><h1>{{ obj.title }}</h1></a>
+        <h3>{{ obj.date }}</h3>
+        <p>{{ obj.body | safe | linebreaks | truncatewords_html:50 }}</p>
+    {% endfor %}
+    
+<div class="clearfix">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+          {% endif %}
+          
+          {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+          {% endif %}
+      </ul>
+    </nav>
+</div>
+{% endblock main_content %}
+
+

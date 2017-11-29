@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main_content %}
+    <title>{% block head_title %}{{ block.super }} | Contatti {% endblock head_title %}</title>
+    <h1>Contattaci alla mail: </h1>
+    <h3>info@mail.com</h3>
+    <center><img src="{% static 'posts/img/yeezysboost.jpg'%}"></img></center>
+{% endblock main_content%}
